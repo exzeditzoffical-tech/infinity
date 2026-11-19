@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INFINITY | Learn Without Limits</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #080b14;
+    color: white;
+}
+
+header {
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #202638;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #a78bfa;
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.hero {
+    padding: 80px 7%;
+    text-align: center;
+    background: radial-gradient(circle at center, #211448, #080b14 70%);
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #a78bfa, #60a5fa);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #b5bdd0;
+    font-size: 17px;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.search-box {
+    max-width: 650px;
+    margin: 30px auto;
+    display: flex;
+    background: #151b2b;
+    border: 1px solid #343b54;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 12px;
+    font-size: 15px;
+    min-width: 0;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: linear-gradient(90deg, #7c3aed, #2563eb);
+    color: white;
+    font-weight: bold;
+}
+
+section {
+    padding: 50px 7%;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: #111827;
+    border: 1px solid #252e43;
+    padding: 25px;
+    border-radius: 16px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    border-color: #8b5cf6;
+    transform: translateY(-3px);
+}
+
+.card h3 {
+    margin: 15px 0 10px;
+}
+
+.card p {
+    color: #aab4c8;
+    line-height: 1.6;
+}
+
+.icon {
+    font-size: 30px;
+}
+
+.subject {
+    text-align: center;
+}
+
+.subject button {
+    margin-top: 15px;
+}
+
+.ai-section {
+    background: #0d1220;
+}
+
+.chat-box {
+    max-width: 750px;
+    margin: auto;
+    background: #111827;
+    border: 1px solid #303b52;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.chat-message {
+    background: #1d2940;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 15px 0;
+    color: #dce5f7;
+    line-height: 1.6;
+    display: none;
+}
+
+.plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.price {
+    font-size: 32px;
+    margin: 20px 0;
+    color: #a78bfa;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #7e8ba5;
+    border-top: 1px solid #202638;
+}
+
+@media(max-width:600px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">∞ INFINITY</div>
+    <nav>
+        <a href="#subjects">Subjects</a>
+        <a href="#ai">Infinity AI</a>
+        <a href="#plans">Plans</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Learn Without <span class="gradient">Limits.</span></h1>
+
+    <p>
+        Your future starts here. Explore subjects, generate notes,
+        practice quizzes, and learn smarter with artificial intelligence.
+    </p>
+
+    <div class="search-box">
+        <input id="topic" placeholder="Ask anything or enter a topic...">
+        <button onclick="askAI()">Ask AI</button>
+    </div>
+
+    <p>📚 School &nbsp; 🎓 College &nbsp; 🤖 AI Learning</p>
+</section>
+
+<section id="subjects">
+    <h2 class="section-title">Explore Subjects</h2>
+
+    <div class="cards">
+
+        <div class="card subject">
+            <div class="icon">📐</div>
+            <h3>Mathematics</h3>
+            <p>Learn formulas, concepts and solve problems.</p>
+            <button onclick="selectSubject('Mathematics')">Explore</button>
+        </div>
+
+        <div class="card subject">
+            <div class="icon">🔬</div>
+            <h3>Science</h3>
+            <p>Explore Physics, Chemistry and Biology.</p>
+            <button onclick="selectSubject('Science')">Explore</button>
+        </div>
+
+        <div class="card subject">
+            <div class="icon">💻</div>
+            <h3>Computer Science</h3>
+            <p>Learn coding, programming and technology.</p>
+            <button onclick="selectSubject('Computer Science')">Explore</button>
+        </div>
+
+        <div class="card subject">
+            <div class="icon">📖</div>
+            <h3>English</h3>
+            <p>Improve grammar, writing and communication.</p>
+            <button onclick="selectSubject('English')">Explore</button>
+        </div>
+
+        <div class="card subject">
+            <div class="icon">🌍</div>
+            <h3>Social Studies</h3>
+            <p>Explore history, geography and economics.</p>
+            <button onclick="selectSubject('Social Studies')">Explore</button>
+        </div>
+
+        <div class="card subject">
+            <div class="icon">🎓</div>
+            <h3>College Courses</h3>
+            <p>Resources for undergraduate and higher education.</p>
+            <button onclick="selectSubject('College Courses')">Explore</button>
+        </div>
+
+    </div>
+</section>
+
+<section id="ai" class="ai-section">
+    <h2 class="section-title">∞ Infinity AI</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">📝</div>
+            <h3>AI Notes Generator</h3>
+            <p>Generate simple, detailed and exam-ready study notes.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧠</div>
+            <h3>AI Quiz Generator</h3>
+            <p>Create MCQs and practice questions for any topic.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📄</div>
+            <h3>PDF Summarizer</h3>
+            <p>Summarize documents and understand difficult topics.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Exam Preparation</h3>
+            <p>Prepare with revision plans and practice tests.</p>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <div class="chat-box">
+        <h3>🤖 Ask Infinity AI</h3>
+
+        <p style="color:#9caac0;margin-top:10px;">
+            Your personal learning assistant.
+        </p>
+
+        <div id="response" class="chat-message"></div>
+
+        <div class="search-box">
+            <input id="question" placeholder="Ask your study question...">
+            <button onclick="chat()">Send</button>
+        </div>
+
+        <p style="color:#718096;font-size:12px;">
+            AI functionality will be connected in a future update.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Why INFINITY?</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌟 Learn Your Way</h3>
+            <p>Study according to your class, course and learning level.</p>
+        </div>
+
+        <div class="card">
+            <h3>⚡ Smart Learning</h3>
+            <p>Understand concepts faster with AI-powered learning tools.</p>
+        </div>
+
+        <div class="card">
+            <h3>📈 Track Progress</h3>
+            <p>Improve your learning and achieve your academic goals.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="plans">
+    <h2 class="section-title">Membership Plans</h2>
+
+    <div class="plans">
+
+        <div class="card">
+            <h3>Free</h3>
+            <div class="price">₹0</div>
+            <p>Basic learning resources</p>
+            <p>Limited AI access</p>
+            <p>Selected study tools</p>
+            <br>
+            <button onclick="alert('Welcome to INFINITY Free!')">
+                Get Started
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>Weekly Premium</h3>
+            <div class="price">₹200/week</div>
+            <p>Premium AI learning tools</p>
+            <p>AI-generated notes</p>
+            <p>Quizzes and exam preparation</p>
+            <br>
+            <button onclick="alert('Membership payments will be available in a future update.')">
+                Choose Plan
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>Monthly Premium</h3>
+            <div class="price">₹400/month</div>
+            <p>Full premium learning experience</p>
+            <p>AI learning assistant</p>
+            <p>Study tools and resources</p>
+            <br>
+            <button onclick="alert('Membership payments will be available in a future update.')">
+                Choose Plan
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <h3>∞ INFINITY</h3>
+    <p>Learn Without Limits.</p>
+    <p>© 2026 INFINITY. Built for learners.</p>
+</footer>
+
+<script>
+function askAI() {
+    const topic = document.getElementById("topic").value;
+
+    if (!topic) {
+        alert("Please enter a topic first.");
+        return;
+    }
+
+    document.getElementById("question").value = topic;
+    document.getElementById("ai").scrollIntoView({behavior:"smooth"});
+}
+
+function chat() {
+    const question = document.getElementById("question").value;
+    const response = document.getElementById("response");
+
+    if (!question) {
+        alert("Please enter your question.");
+        return;
+    }
+
+    response.style.display = "block";
+    response.innerHTML =
+        "You asked: <b>" + question.replace(/</g,"&lt;") +
+        "</b><br><br>" +
+        "Infinity AI will be connected to an AI service in a future update. " +
+        "This is currently a website preview.";
+}
+
+function selectSubject(subject) {
+    document.getElementById("question").value =
+        "Help me learn " + subject;
+
+    document.getElementById("ai").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+</script>
+
+</body>
+  </html>
